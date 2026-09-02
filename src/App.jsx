@@ -203,12 +203,13 @@ function useReveal() {
   }, [])
 }
 
-function Wordmark({ className = '' }) {
+function Wordmark({ className = 'h-8', variant = 'light' }) {
   return (
-    <span className={`whitespace-nowrap leading-none ${className}`}>
-      <span className="font-display italic font-light tracking-tight">marketing</span>
-      <span className="font-black tracking-tight">NEXT</span>
-    </span>
+    <img
+      src={`${import.meta.env.BASE_URL}logos/marketingnext-${variant}.svg`}
+      alt="marketingNEXT"
+      className={`w-auto ${className}`}
+    />
   )
 }
 
@@ -216,7 +217,7 @@ function SectionHead({ no, title, lead, dark = false }) {
   return (
     <div className={`animate-on-scroll ${dark ? 'rule-t-dark' : 'rule-t'} pt-5`}>
       <div className="flex items-baseline gap-4">
-        <span className={`font-display text-sm italic ${dark ? 'text-mn-red' : 'text-mn-red'}`}>№ {no}</span>
+        <span className={`font-display text-sm italic font-semibold ${dark ? 'text-mn-paper' : 'text-mn-red'}`}>№ {no}</span>
         <span className={`text-[11px] font-bold uppercase tracking-[0.22em] ${dark ? 'text-mn-paper/50' : 'text-mn-mute'}`}>
           marketingNEXT · 2027
         </span>
@@ -248,8 +249,8 @@ export default function App() {
       {/* ── NAV ─────────────────────────────────────────────────────────── */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-mn-line bg-mn-paper/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-          <a href="#top" className="text-xl">
-            <Wordmark />
+          <a href="#top" className="flex items-center">
+            <Wordmark className="h-9" />
           </a>
           <nav className="hidden items-center gap-7 lg:flex">
             {NAV.map(([id, label]) => (
@@ -294,7 +295,7 @@ export default function App() {
           </p>
           <h1 className="hero-rise hero-d2 mt-6 max-w-4xl font-display text-6xl font-semibold leading-[0.98] tracking-tight sm:text-7xl lg:text-8xl">
             The marketing<br />
-            <span className="mark-sweep italic">surgery.</span>
+            <span className="text-mn-red italic">surgery.</span>
           </h1>
           <p className="hero-rise hero-d3 mt-8 max-w-2xl text-lg leading-relaxed text-mn-ink-soft sm:text-xl">
             A monthly peer-led session for senior iGaming marketers. One case study,
@@ -384,7 +385,7 @@ export default function App() {
           </div>
           <p className="animate-on-scroll mt-14 max-w-3xl font-display text-2xl italic leading-snug text-mn-paper/90 sm:text-3xl">
             Being part of marketingNEXT should be worth a line on your LinkedIn profile.
-            That only works if the room is <span className="text-mn-red not-italic font-semibold">genuinely selective.</span>
+            That only works if the room is <span className="not-italic font-bold mark-sweep-paper">genuinely selective.</span>
           </p>
         </div>
       </section>
@@ -507,7 +508,7 @@ export default function App() {
       <footer className="border-t border-mn-line px-5 py-12">
         <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-6">
           <div>
-            <Wordmark className="text-2xl" />
+            <Wordmark className="h-11" />
             <p className="mt-2 max-w-md text-sm leading-relaxed text-mn-mute">
               A monthly peer-led marketing surgery for senior iGaming marketers.
               A NEXT.io portfolio project.

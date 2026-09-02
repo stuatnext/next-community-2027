@@ -26,22 +26,28 @@ for this repo.
 - Commit with a clear message and push the branch.
 - Open a fresh PR into `main` only when asked.
 
-## Branding — marketingNEXT, not NEXT.io house style
+## Branding — the official marketingNEXT identity (logo pack, 2 Sep 2026)
 
-Communities carry their own identity (same rule as HR Connect). Do **not**
-restyle this toward the summit dark-grey/yellow system.
+The official lockup is NEXT.io house family: charcoal `#242426` + brand
+yellow `#ffcf33`, exactly as sampled from the logo SVGs. The page runs dark
+with yellow as the only accent.
 
-- Editorial paper-and-ink palette with a single vermilion accent: paper
-  `#f5f1e8`, ink `#191511`, vermilion `#c73e1d` — defined as `mn-*` tokens in
-  `src/index.css`. Vermilion is the only accent; never add a second.
-- Type is Fraunces (display, loaded with italics) + Archivo (text), via
-  Google Fonts in `index.html`.
-- The wordmark is live text via the `<Wordmark>` component: Fraunces italic
-  "marketing" + Archivo black "NEXT". There is no logo file; if brand assets
-  ever arrive, swap inside `<Wordmark>` so every usage follows.
-- The `.mark-sweep` / `.mark-sweep-paper` utilities are the red marker stroke
-  behind key words — the signature device. Use sparingly (once per section
-  at most).
+- Logo files live in `public/logos/`: `marketingnext-light.svg` (white +
+  yellow, for the dark ground — nav and footer), `marketingnext-dark.svg`
+  (charcoal + yellow, for light surfaces), `marketingnext-yellow.svg`.
+  Always use the `<Wordmark>` component (`variant` picks the colourway);
+  never re-set "marketingNEXT" as live text.
+- The `mn-*` tokens in `src/index.css` kept their names from the first
+  build but now map to the official palette: `mn-paper` is the charcoal
+  ground, `mn-ink` is white text, `mn-red` **is brand yellow** (the only
+  accent — never add a second). Sections styled `bg-mn-ink text-mn-paper`
+  render as inverted white sections.
+- Type is Inter throughout (house family), via Google Fonts in
+  `index.html`.
+- The `.mark-sweep` / `.mark-sweep-paper` utilities are the yellow marker
+  stroke behind key words — use sparingly (once per section at most).
+  On the dark ground prefer yellow text for emphasis; the sweep reads
+  muddy over charcoal (that is why the hero uses `text-mn-red`).
 
 ## Content rules — what the page sells
 
